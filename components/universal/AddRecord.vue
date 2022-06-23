@@ -4,7 +4,7 @@
     @click="addRecord"
   >
     <img
-      src="assets/img/icons/plus.svg"
+      src="@/assets/img/icons/plus.svg"
       alt="Plus icon"
       class="opacity-30 transition-all duration-500"
     />
