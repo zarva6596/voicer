@@ -15,7 +15,6 @@
           <div class="flex items-center text-grey text-xs">
             <p>22 raws</p>
 
-
             <div class="h-1 w-1 rounded-full bg-grey mx-2"></div>
 
             <p>Updated 18.06.2022</p>
