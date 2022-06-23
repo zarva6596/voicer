@@ -37,6 +37,6 @@
 </template>
 
 <script setup>
-  const logo = 'assets/img/logos/logo.svg'
-  const cloud = 'assets/img/header/cloud.svg'
+  const logo = 'public/img/logos/logo.svg'
+  const cloud = 'public/img/header/cloud.svg'
 </script>
