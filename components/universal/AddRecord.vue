@@ -4,7 +4,7 @@
     @click="addRecord"
   >
     <img
-      src="/public/img/icons/plus.svg"
+      src="~/assets/img/icons/plus.svg"
       alt="Plus icon"
       class="opacity-30 transition-all duration-500"
     />
@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-  import { useRecordStore } from '../../stores/recordStore'
+  import { useRecordStore } from '~/stores/recordStore'
 
   const { addRecord } = useRecordStore()
 </script>

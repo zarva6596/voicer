@@ -3,13 +3,13 @@
     <div class="max-w-[1440px] mx-auto flex justify-between items-center py-6 px-4 lg:px-16">
       <div class="flex items-center">
         <nuxt-link class="mr-4" to="/">
-          <img :src="logo" alt="Voicer logo" />
+          <img src="~/assets/img/logos/logo.svg" alt="Voicer logo" />
         </nuxt-link>
 
         <div>
           <div class="flex items-center">
             <span class="text-grey font-bold text-lg mr-2">Voicer</span>
-            <img :src="cloud" alt="cloud icon" />
+            <img src="~/assets/img/header/cloud.svg" alt="cloud icon" />
           </div>
 
           <div class="flex items-center text-grey text-xs">
@@ -35,8 +35,3 @@
     </div>
   </header>
 </template>
-
-<script setup>
-  const logo = require('assets/img/logos/logo.svg')
-  const cloud = require('assets/img/header/cloud.svg')
-</script>
