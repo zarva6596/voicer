@@ -3,7 +3,7 @@
     <div class="max-w-[1440px] mx-auto flex justify-between items-center py-6 px-4 lg:px-16">
       <div class="flex items-center">
         <nuxt-link class="mr-4" to="/">
-          <img src="~/public/img/logos/logo.svg" alt="Voicer logo" />
+          <img :src="logo" alt="Voicer logo" />
         </nuxt-link>
 
         <div>
@@ -35,3 +35,7 @@
     </div>
   </header>
 </template>
+
+<script setup>
+import logo from 'assets/img/logos/logo.svg'
+</script>
