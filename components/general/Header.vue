@@ -3,7 +3,7 @@
     <div class="max-w-[1440px] mx-auto flex justify-between items-center py-6 px-4 lg:px-16">
       <div class="flex items-center">
         <nuxt-link class="mr-4" to="/">
-          <img src="/img/logos/logo.svg" alt="Voicer logo" />
+          <img :src="logo" alt="Voicer logo" />
         </nuxt-link>
 
         <div>
@@ -36,6 +36,6 @@
 </template>
 
 <script setup>
-  const logo = 'public/img/logos/logo.svg'
+  const logo = '/img/logos/logo.svg'
   const cloud = '/img/header/cloud.svg'
 </script>

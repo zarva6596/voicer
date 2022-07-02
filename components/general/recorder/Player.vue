@@ -18,7 +18,7 @@
       'w-10 border-micGrey hover:border-black': playerOptions.status === STATUS.START
     }"
   >
-    <img src="public/img/recorder-item/mic.svg" alt="Mic icon" class="h-5 w-5" />
+    <img src="/img/recorder-item/mic.svg" alt="Mic icon" class="h-5 w-5" />
   </div>
 </template>
 
