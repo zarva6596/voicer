@@ -37,5 +37,5 @@
 
 <script setup>
   const logo = 'public/img/logos/logo.svg'
-  const cloud = 'public/img/header/cloud.svg'
+  const cloud = '/img/header/cloud.svg'
 </script>
