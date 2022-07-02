@@ -4,12 +4,13 @@
       v-for="(comment, i) in comments"
       :key="i"
       :data="{ comment, id }"
+      :class="`comment-${id}`"
     />
 
     <div
       v-if="
         (caption.length && !comments.length) ||
-        (comments.length && comments.every(item => item.data.length))
+        (comments.length && comments.every((item) => item.data.length))
       "
       class="min-w-[100px]"
     >
@@ -23,9 +24,11 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+  import { computed, ref } from 'vue'
   import { useRecordStore } from '@/stores/recordStore'
 
+  const commentsDom = ref(null)
   const recordStore = useRecordStore()
 
   const props = defineProps({
@@ -39,7 +42,21 @@
     () => recordStore.records.find((item) => item.id === props.id)?.comments
   )
 
-  const addNewComment = () => recordStore.addNewComment(props.id)
+  const focusNewComment = () => {
+    setTimeout(() => {
+      const domComments = document.getElementsByClassName(
+        `comment-${props.id}`
+      ) as HTMLCollectionOf<HTMLElement>
+      const lastComment = domComments[domComments.length - 1]
+        .lastElementChild as HTMLElement
+      lastComment && lastComment.focus()
+    }, 200)
+  }
+
+  const addNewComment = () => {
+    recordStore.addNewComment(props.id)
+    focusNewComment()
+  }
 </script>
 
 <style lang="scss">
