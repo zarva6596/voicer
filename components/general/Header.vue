@@ -1,9 +1,11 @@
 <template>
   <header class="bg-[black]">
-    <div class="max-w-[1440px] mx-auto flex justify-between items-center py-6 px-4 lg:px-16">
+    <div
+      class="max-w-[1440px] mx-auto flex justify-between items-center py-6 px-4 lg:px-16"
+    >
       <div class="flex items-center">
         <nuxt-link class="mr-4" to="/">
-          <img src="img/logos/logo.svg" alt="Voicer logo" />
+          <img src="/img/logos/logo.svg" alt="Voicer logo" />
         </nuxt-link>
 
         <div>
@@ -15,7 +17,6 @@
           <div class="flex items-center text-grey text-xs">
             <p>22 raws</p>
 
-
             <div class="h-1 w-1 rounded-full bg-grey mx-2"></div>
 
             <p>Updated 18.06.2022</p>
@@ -24,17 +25,17 @@
 
             <p>
               <span>Created by</span>
-              <a href="mailto:maximgonchar@gmail.com" class="text-blue ml-2">maximgonchar@gmail.com</a>
+              <a href="mailto:maximgonchar@gmail.com" class="text-blue ml-2"
+                >maximgonchar@gmail.com</a
+              >
             </p>
           </div>
         </div>
       </div>
-
 
       <UniversalShareBtn />
     </div>
   </header>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
