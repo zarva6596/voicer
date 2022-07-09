@@ -1,7 +1,7 @@
 <template>
   <div>
     <GeneralRecorder
-      v-for="item in options"
+      v-for="item in records"
       :key="item.id"
       :item="item"
       class="mb-2.5"
@@ -12,13 +12,7 @@
 </template>
 
 <script setup>
-  import { useRecordStore } from "../stores/recordStore";
+  import { useRecordStore } from '../stores/recordStore'
 
-  const recordStore = useRecordStore()
-
-  definePageMeta({
-    layout: 'custom',
-  })
-
-  const options = computed(() => recordStore.records)
+  const { records } = useRecordStore()
 </script>

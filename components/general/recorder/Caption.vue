@@ -6,13 +6,14 @@
       placeholder="Add caption"
       class="bg-transparent placeholder:text-transparent absolute h-full w-full text-lg placeholder:whitespace-nowrap"
       @keypress="removeEnter"
-      @input="changeCaption"
+      @input="changeCap"
     ></textarea>
     <div
       class="rounded-lg overflow-hidden text-lg transition-all duration-500 flex items-center"
       :class="{
-        'bg-capGrey text-transparent h-2 w-6 min-h-[8px] min-w-[24px]': !caption.length,
-        'min-w-[101px] w-fit h-fit': caption.length
+        'bg-capGrey text-transparent h-2 w-6 min-h-[8px] min-w-[24px]':
+          !caption.length,
+        'min-w-[101px] w-fit h-fit': caption.length,
       }"
     >
       <p :class="{ hidden: !caption.length }">{{ caption }}</p>
@@ -21,20 +22,26 @@
 </template>
 
 <script setup lang="ts">
-  import { removeEnter, stopStringLength } from '~/utils';
-  import { useRecordStore } from '@/stores/recordStore';
-  import { computed } from "vue";
+  import { AudioRecording } from 'stores/recordStore'
+  import { PrintData } from '~/utils'
+  import { removeEnter } from '~/utils'
+  import { useRecordStore } from '@/stores/recordStore'
+  import { computed } from 'vue'
+  import { PropType } from '@vue/runtime-core'
 
   const recordStore = useRecordStore()
 
   const props = defineProps({
-    id: {  type: String, default: '' },
+    id: { type: String as PropType<string>, default: '' },
   })
 
-  const item = computed(() => recordStore.records.find(item => item.id === props.id))
+  const item = computed(() =>
+    recordStore.records.find((item: AudioRecording) => item.id === props.id)
+  )
   const caption = computed(() => item.value.caption)
 
-  const changeCaption = e => recordStore.changeCaption(item.value.id, e.target.value)
+  const changeCap = (e: PrintData) =>
+    recordStore.changeCaption(item.value.id, e.target.value)
 </script>
 
 <style lang="scss">

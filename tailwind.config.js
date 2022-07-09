@@ -1,16 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./**/*.{html,js}"],
+  content: ['./**/*.{html,js}'],
   purge: [
-    "./assets/**/*.{css}",
-    "./components/*.{vue,js}",
-    "./components/**/*.{vue,js}",
-    "./layouts/**/*.{vue, js}",
-    "./pages/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
-    "./*.{vue,js,ts}",
-    "./nuxt.config.{js,ts}",
+    './assets/**/*.{css}',
+    './components/*.{vue,js}',
+    './components/**/*.{vue,js}',
+    './layouts/**/*.{vue, js}',
+    './pages/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './*.{vue,js,ts}',
+    './nuxt.config.{js,ts}',
   ],
   theme: {
     extend: {
@@ -27,8 +27,9 @@ module.exports = {
         comment: '#A49393',
         comment2n: 'rgba(0, 0, 0, 0.4)',
         commentBg: '#ECE3E3',
-        commentBg2n: '#E3ECE6'
-      }
+        commentBg2n: '#E3ECE6',
+        dropMenuBtn: '#8e8e8e',
+      },
     },
   },
   plugins: [],

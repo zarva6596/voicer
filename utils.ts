@@ -1,8 +1,8 @@
-export const random = (): String =>
+export const random = (): string =>
   Math.random().toString(36).substring(2, 15) +
   Math.random().toString(36).substring(2, 15)
 
-type PrintData = {
+export type PrintData = {
   target: { value: string }
   preventDefault: Function
   keyCode: number
