@@ -38,5 +38,15 @@ export const useRecordStore = defineStore({
       const record = this.records.find((item) => item.id === id)
       if (record) record.fire = true
     },
+    removeItem(id: string) {
+      const index = this.records.findIndex((item) => item.id === id)
+      index && this.records.splice(index, 1)
+    },
+    removeComment(itemId: string, commentId: string) {
+      const item = this.records.find((item) => item.id === itemId)
+      const commentIndex =
+        item && item.comments.findIndex((item) => item.id === commentId)
+      commentIndex && item.comments.splice(commentIndex, 1)
+    },
   },
 })

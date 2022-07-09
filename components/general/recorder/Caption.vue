@@ -4,12 +4,12 @@
       :value="caption"
       type="text"
       placeholder="Add caption"
-      class="bg-transparent placeholder:text-transparent absolute h-full w-full text-lg placeholder:whitespace-nowrap"
+      class="bg-transparent placeholder:text-transparent absolute h-full w-full lg:text-lg placeholder:whitespace-nowrap"
       @keypress="removeEnter"
       @input="changeCap"
     ></textarea>
     <div
-      class="rounded-lg overflow-hidden text-lg transition-all duration-500 flex items-center"
+      class="rounded-lg overflow-hidden lg:text-lg transition-all duration-500 flex items-center"
       :class="{
         'bg-capGrey text-transparent h-2 w-6 min-h-[8px] min-w-[24px]':
           !caption.length,
@@ -22,10 +22,9 @@
 </template>
 
 <script setup lang="ts">
-  import { AudioRecording } from 'stores/recordStore'
+  import { AudioRecording, useRecordStore } from '@/stores/recordStore'
   import { PrintData } from '~/utils'
   import { removeEnter } from '~/utils'
-  import { useRecordStore } from '@/stores/recordStore'
   import { computed } from 'vue'
   import { PropType } from '@vue/runtime-core'
 
@@ -38,10 +37,10 @@
   const item = computed(() =>
     recordStore.records.find((item: AudioRecording) => item.id === props.id)
   )
-  const caption = computed(() => item.value.caption)
+  const caption = computed(() => item.value && item.value.caption)
 
   const changeCap = (e: PrintData) =>
-    recordStore.changeCaption(item.value.id, e.target.value)
+    item.value && recordStore.changeCaption(item.value.id, e.target.value)
 </script>
 
 <style lang="scss">

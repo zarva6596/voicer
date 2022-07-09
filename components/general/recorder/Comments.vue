@@ -5,6 +5,8 @@
       :key="i"
       :data="{ comment, id }"
       :class="`comment-${id}`"
+      @enter="addNewComment"
+      @removeComment="removeComment(id, comment.id)"
     />
 
     <div
@@ -25,21 +27,25 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
-  import { useRecordStore } from '@/stores/recordStore'
+  import { computed } from 'vue'
+  import { useRecordStore, AudioRecording } from '@/stores/recordStore'
+  import { PropType } from '@vue/runtime-core'
 
-  const commentsDom = ref(null)
   const recordStore = useRecordStore()
 
   const props = defineProps({
-    id: { type: String, default: '' },
+    id: { type: String as PropType<string>, default: '' },
   })
 
   const caption = computed(
-    () => recordStore.records.find((item) => item.id === props.id)?.caption
+    () =>
+      recordStore.records.find((item: AudioRecording) => item.id === props.id)
+        ?.caption
   )
   const comments = computed(
-    () => recordStore.records.find((item) => item.id === props.id)?.comments
+    () =>
+      recordStore.records.find((item: AudioRecording) => item.id === props.id)
+        ?.comments
   )
 
   const focusNewComment = () => {
@@ -55,6 +61,11 @@
 
   const addNewComment = () => {
     recordStore.addNewComment(props.id)
+    focusNewComment()
+  }
+
+  const removeComment = (itemId: string, commentId: string) => {
+    recordStore.removeComment(itemId, commentId)
     focusNewComment()
   }
 </script>

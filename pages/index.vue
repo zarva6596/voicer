@@ -14,5 +14,6 @@
 <script setup>
   import { useRecordStore } from '../stores/recordStore'
 
-  const { records } = useRecordStore()
+  const store = useRecordStore()
+  const records = store.records
 </script>
